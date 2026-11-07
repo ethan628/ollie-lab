@@ -12,7 +12,13 @@ npm run sim:park   # 無畫面的公園物理檢查（推、煞車、轉向、�
 
 ## 部署
 
-已發布在 https://claude.ai/artifact/AwXxSWEpsWSV2fFdH4pLKf （自由滑：網址後面加 `#park`）。
+公開網址（不用登入）：**https://ethan628.github.io/ollie-lab/** （自由滑：網址後面加 `#park`）
+
+```bash
+npm run deploy   # 打包並推到 gh-pages 分支，GitHub Pages 約一分鐘內更新
+```
+
+另外也發布在 claude.ai：https://claude.ai/artifact/AwXxSWEpsWSV2fFdH4pLKf
 
 ```bash
 npm run build:artifact   # 輸出 dist-artifact/index.html：只含網站程式，three.js 和 cannon-es 從 jsDelivr 載入
