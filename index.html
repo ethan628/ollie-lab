@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Ollie Physics Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap">
+</head>
+<body>
+  <div class="stage" id="stage">
+    <canvas id="c" aria-label="滑板 Ollie 物理模擬，可拖曳旋轉視角"></canvas>
+    <div class="hud">
+      <div><div class="title">Ollie</div><div class="sub" id="sub">物理板子 · IK 人物</div></div>
+      <div class="phase" id="phase">滑行</div>
+    </div>
+    <div class="result" id="result" data-k="good"></div>
+    <div id="labels"></div>
+    <div class="next" id="next"></div>
+    <div class="hint">拖曳旋轉 · 雙指縮放</div>
+    <div class="joy" id="joy" hidden aria-label="搖桿：左右轉向，往上推，往下煞車"><div class="knob"></div></div>
+  </div>
+
+  <div class="panel">
+    <div class="readouts" aria-live="polite">
+      <div class="ro"><span>最高高度</span><b id="rH">—<small>cm</small></b></div>
+      <div class="ro"><span>滯空時間</span><b id="rA">—<small>s</small></b></div>
+      <div class="ro"><span>落地角度</span><b id="rP">—<small>°</small></b></div>
+      <div class="ro"><span>板子角度</span><b id="rLive">0<small>°</small></b></div>
+    </div>
+    <div class="row">
+      <button id="ollie" type="button">OLLIE<small>按住＝帶平</small></button>
+      <div class="sliders">
+        <label class="sl" for="pop"><span>彈板力道</span><input id="pop" type="range" min="0.6" max="1.4" step="0.05" value="1"><output id="popV">1.00</output></label>
+        <label class="sl" for="level"><span>前腳帶平</span><input id="level" type="range" min="0" max="2" step="0.1" value="1"><output id="levelV">1.0</output></label>
+      </div>
+    </div>
+    <div class="tricks" aria-label="空中招式">
+      <button type="button" data-trick="kickflip"><kbd>←</kbd>Kickflip</button>
+      <button type="button" data-trick="heelflip"><kbd>→</kbd>Heelflip</button>
+      <button type="button" data-trick="shoveit"><kbd>↓</kbd>Shove-it</button>
+    </div>
+    <div class="tools">
+      <button type="button" id="slow" aria-pressed="false">慢動作 0.25×</button>
+      <button type="button" id="arrows" aria-pressed="true">施力箭頭</button>
+      <button type="button" id="reset">回到起點</button>
+      <button type="button" id="mode" class="mode">自由滑</button>
+      <span class="sp"></span>
+      <kbd id="keys">空白 Ollie · ← → ↓ 招式 · 按住不放 = 帶平 / 接板</kbd>
+    </div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

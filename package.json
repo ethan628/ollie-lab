@@ -1,0 +1,25 @@
+{
+  "name": "ollie-lab",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "deploy": "node tools/deploy.mjs",
+    "build:artifact": "tsc --noEmit && vite build --mode artifact && node tools/artifact-page.mjs",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "sim:park": "esbuild tools/park-sim.ts --bundle --platform=node --format=cjs --log-level=error --outfile=node_modules/.cache/park-sim.cjs && node node_modules/.cache/park-sim.cjs"
+  },
+  "dependencies": {
+    "cannon-es": "^0.20.0",
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "@types/three": "^0.186.0",
+    "typescript": "~5.8",
+    "vite": "~6.4",
+    "vite-plugin-singlefile": "^2.3.4"
+  }
+}
